@@ -51,21 +51,26 @@ const Login = () => {
       <div className="grid grid-cols-1 lg:grid-cols-7 gap-12 shadow-lg rounded-lg overflow-hidden">
         {/* Banner */}
         <div className="lg:col-span-4 h-screen hidden lg:block">
-          <Image src="/images/signIn.jpg" alt="login" width={1000} height={1000} className="w-full h-full object-cover" />
+          <Image src="/images/signIn.jpg" 
+          alt="login" 
+          width={1000} 
+          height={1000} 
+          className="w-full h-full object-cover" />
         </div>
         
         {/* Form */}
         <div className="lg:col-span-3 flex flex-col items-center justify-center p-8 w-full">
-          <h1 className='text-2xl font-bold text-rose-600 uppercase mb-6 text-center'>Đăng nhập</h1>
+          <h1 className='text-2xl font-bold force-mb text-center' >Đăng nhập</h1>
           
-          <form onSubmit={handleSubmit} className='w-full max-w-sm space-y-6'>
-            <div>
+          <form onSubmit={handleSubmit} 
+          className='block w-[90%] sm:w-[80%] md:w-[60%] lg:w-[90%] xl:w-[80%]'>
+            <div className='force-mb' >
               <label htmlFor='userId' className='font-semibold mb-2 block'>Tên đăng nhập</label>
               <input 
                 type="text"
                 name='userId'
                 placeholder='Nhập tên đăng nhập'
-                className='px-4 py-3 bg-gray-50 border border-gray-300 rounded-lg w-full outline-none focus:ring-2 focus:ring-rose-500'
+                className='px-2 py-4 bg-gray-50 border border-gray-300 rounded-lg h-10 w-full outline-none focus:ring-2 focus:ring-rose-500'
                 value={formData.userId}
                 onChange={handleChange}
               />
@@ -81,7 +86,7 @@ const Login = () => {
               />
             </div>
 
-            <div className='flex justify-between items-center text-sm'>
+            <div className='flex justify-between items-center text-sm force-mb'>
               <span></span>
               <h2 className='text-red-600 font-semibold cursor-pointer'>Quên mật khẩu?</h2>
             </div>

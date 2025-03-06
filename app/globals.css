@@ -122,3 +122,9 @@
   }
 
 }
+
+@layer utilities {
+  .force-mb {
+    margin-bottom: 15px !important;
+  }
+}
