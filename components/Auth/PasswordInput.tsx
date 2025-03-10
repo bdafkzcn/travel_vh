@@ -32,7 +32,7 @@ const PasswordInput = ({
   return (
     <>
     {label && (
-      <label className={`font-semibold mb-2 block ${labelClassName}`}>
+      <label className={`font-semibold mb-2 block text-orange-500 ${labelClassName}`}>
         {label}
       </label>
     )}

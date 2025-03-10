@@ -1,37 +1,22 @@
 export interface User {
-  _id: string;
+  token: string;
+  expired: number;
+  refreshToken: string;
+  userId: string;
+  tokenType: string;
   username: string;
-  email: string;
-  password: string;
-  profilePicture?: string;
-  bio?: string;
-  followers: string[];
-  following: string[];
-  posts: Post[];
-  savePosts: string[] | Post[];
-  isVerified: boolean;
+  branchName: string;
+  roles: Role[];
+  admin: boolean;
 }
 
-export interface Comment {
-  _id: string;
-  text: string;
-  user: {
-    _id: string;
-    username: string;
-    profilePicture: string;
-  }
-  createAt: string;
+export interface Role {
+  name: string;
 }
 
-export interface Post {
-  _id: string[];
-  caption: string;
-  image?: {
-    url: string;
-    publicId: string;
-  };
-  user: User | undefined;
-  likes: string[];
-  comments: Comment[];
-  createAt: string;
+
+export interface MenuItemProps {
+  icon: ReactNode;
+  label: string;
+  active?: boolean;
 }
