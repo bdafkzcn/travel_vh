@@ -40,9 +40,9 @@ const columns: ColumnDef<User>[] = [
     accessorKey: "status",
     header: "Trạng thái",
     cell: ({ row }) => (
-      <Badge variant={row.original.status === "active" ? "success" : "destructive"}>
-        {row.original.status === "active" ? "Kích hoạt" : "Khóa"}
-      </Badge>
+      <Badge variant={row.original.status === "active" ? "default" : "destructive"}>
+      {row.original.status === "active" ? "Kích hoạt" : "Khóa"}
+    </Badge>
     ),
   },
   {
