@@ -43,7 +43,7 @@ const Login = () => {
 
     if (result) {
       dispatch(setAuthUser(result.data.data));
-      toast.success(result.data.message);
+      toast.success(result.data.message|| "Login successful!");
       router.push("/");
     }
   };
