@@ -1,10 +1,12 @@
 'use client';
 
-import { DataTable } from "../ui/data-table"; // Nếu bạn có component sẵn
-import { ColumnDef } from "@tanstack/react-table"; // Hoặc Shadcn Table
+import { useEffect, useState } from 'react';
+import { DataTable } from "../ui/data-table";
+import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Eye, Edit, Trash2 } from "lucide-react";
+import { userApi } from '@/services/api';
 
 export type User = {
   id: string;
@@ -58,17 +60,44 @@ const columns: ColumnDef<User>[] = [
   },
 ];
 
-const data: User[] = [
-  { id: '00000001', username: 'admin', email: 'admin123@gmail.com', language: 'vi', roles: 'SUPER_ADMIN', status: 'inactive' },
-  { id: 'security', username: 'security', email: 'security@gmail.com', language: 'vi', roles: 'ROLE_SECURITY', status: 'active' },
-  { id: 'admin', username: 'admin', email: 'admin1234@gmail.com', language: 'vi', roles: 'SUPER_ADMIN', status: 'active' },
-  { id: 'qc', username: 'qc', email: 'qc@gmail.com', language: 'vi', roles: 'ROLE_QC', status: 'active' },
-];
-
 export default function UserManagementTable() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
+        
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const data = await userApi.getUsers();
+        setUsers(data);
+      } catch (error) {
+        console.error('Failed to fetch users:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
   return (
-    <div className="container mx-auto py-4">
-      <DataTable columns={columns} data={data} />
+    <div className="h-full">
+      <div className="bg-white rounded-lg shadow-lg border">
+        <div className="p-6">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-2xl font-semibold">Quản lý tài khoản</h2>
+            <Button variant="default">Thêm mới</Button>
+          </div>
+          {loading ? (
+            <div className="flex justify-center items-center h-64">
+              Loading...
+            </div>
+          ) : (
+            <div className="overflow-hidden">
+              <DataTable columns={columns} data={users} />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ import UserManagementTable from '../DataTable/UserManagementTable';
     return (
       <div className="w-full h-full">
       <div className="max-w-[1200px] mx-auto">
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+        <div className=" rounded-lg shadow-sm p-6 mb-6">
           <div className="overflow-x-auto">
             {selectedMenu === 'dashboard' && <div>Dashboard Content</div>}
             {selectedMenu === 'user-management' && <UserManagementTable />}

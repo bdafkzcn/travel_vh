@@ -1,6 +1,6 @@
 import DataTable from "../../../components/DataTable/UserManagementTable";
 import { getUsers } from "../../../lib/api";
-import { columns } from "../../../components/DataTable/UserManagementTable";
+import UserManagementTable, { columns } from "../../../components/DataTable/UserManagementTable";
 
 
 export default async function UserManagementPage() {
