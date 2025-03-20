@@ -1,0 +1,19 @@
+{
+  "user_management": {
+    "title": "用戶管理",
+    "add_new": "添加新用戶",
+    "columns": {
+      "id": "ID",
+      "username": "用戶名",
+      "email": "電子郵件",
+      "language": "語言",
+      "roles": "角色",
+      "status": "狀態",
+      "actions": "操作"
+    },
+    "status": {
+      "active": "啟用",
+      "inactive": "禁用"
+    }
+  }
+}

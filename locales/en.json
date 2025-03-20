@@ -1,0 +1,19 @@
+{
+  "user_management": {
+    "title": "User Management",
+    "add_new": "Add New",
+    "columns": {
+      "id": "ID",
+      "username": "Username",
+      "email": "Email",
+      "language": "Language",
+      "roles": "Roles",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    }
+  }
+}

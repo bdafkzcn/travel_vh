@@ -1,0 +1,19 @@
+{
+  "user_management": {
+    "title": "Quản lý tài khoản",
+    "add_new": "Thêm mới",
+    "columns": {
+      "id": "ID",
+      "username": "Tên người dùng",
+      "email": "Email",
+      "language": "Ngôn ngữ",
+      "roles": "Các quyền",
+      "status": "Trạng thái",
+      "actions": "Hành động"
+    },
+    "status": {
+      "active": "Kích hoạt",
+      "inactive": "Khóa"
+    }
+  }
+}
