@@ -11,10 +11,35 @@ const axiosInstance = axios.create({
   }
 });
 
+// Add request interceptor
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const userApi = {
+  login: async (username: string, password: string) => {
+    const response = await axiosInstance.post('/api/v1/auth/login', {
+      username,
+      password,
+    });
+    if (response.data.token) {
+      localStorage.setItem('accessToken', response.data.token);
+    }
+    return response.data;
+  },
+
   getUsers: async () => {
     try {
-      const response = await axiosInstance.get('/api/v1/api/users');
+      const response = await axiosInstance.get('/api/v1/users');
       return response.data;
     } catch (error) {
       console.error('Error fetching users:', error);
