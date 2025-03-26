@@ -27,14 +27,21 @@ axiosInstance.interceptors.request.use(
 
 export const userApi = {
   login: async (username: string, password: string) => {
-    const response = await axiosInstance.post('/api/v1/auth/login', {
-      username,
-      password,
-    });
-    if (response.data.token) {
-      localStorage.setItem('accessToken', response.data.token);
+    try {
+      const response = await axiosInstance.post('/api/v1/auth/login', {
+        username,
+        password,
+      });
+      const token = response.data.token;
+      if (token) {
+        localStorage.setItem('accessToken', token);
+        // Sau khi lưu token, các request tiếp theo sẽ tự động gửi kèm token
+      }
+      return response.data;
+    } catch (error) {
+      console.error('Login error:', error);
+      throw error;
     }
-    return response.data;
   },
 
   getUsers: async () => {
