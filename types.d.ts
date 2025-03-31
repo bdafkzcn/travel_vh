@@ -20,3 +20,5 @@ export interface MenuItemProps {
   label: string;
   active?: boolean;
 }
+
+const users = await getUsers(userToken); 

@@ -32,11 +32,6 @@ export const userApi = {
         username,
         password,
       });
-      const token = response.data.token;
-      if (token) {
-        localStorage.setItem('accessToken', token);
-        // Sau khi lưu token, các request tiếp theo sẽ tự động gửi kèm token
-      }
       return response.data;
     } catch (error) {
       console.error('Login error:', error);

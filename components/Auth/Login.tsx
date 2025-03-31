@@ -37,8 +37,6 @@ const Login = () => {
         withCredentials: true,
       });
 
-
-
     const result = await handleAuthRequest(loginReq, setIsLoading);
 
     if (result) {
