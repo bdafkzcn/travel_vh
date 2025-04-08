@@ -40,6 +40,7 @@ const Login = () => {
     const result = await handleAuthRequest(loginReq, setIsLoading);
 
     if (result) {
+      localStorage.setItem("token", result.data.token);
       dispatch(setAuthUser(result.data.data));
       toast.success(result.data.message|| "Login successful!");
       router.push("/");
