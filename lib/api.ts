@@ -6,14 +6,14 @@ export async function getUsers(token: string) {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        'Authorization': `Bearer ${token}`
       },
       cache: 'no-store',
     });
 
     if (!res.ok) {
       const errorDetails = await res.json();
-      console.error("Error details:", errorDetails); // In chi tiết lỗi từ API
+      console.error("Error details:", errorDetails);
       throw new Error("Failed to fetch users");
     }
 
