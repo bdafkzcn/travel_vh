@@ -10,6 +10,7 @@ import { toast } from 'sonner';
 import { useDispatch } from 'react-redux';
 import { setAuthUser } from '@/store/authSlice';
 import { useRouter } from 'next/navigation';
+import axiosInstance from "@/services/api";
 
 interface FormData {
   userId: string;
@@ -33,7 +34,7 @@ const Login = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const loginReq = async () =>
-      await axios.post(`${BASE_API_URL}/sign-in`, formData, {
+      await axiosInstance.post(`authentication/sign-in`, formData, {
         withCredentials: true,
       });
 
@@ -42,7 +43,7 @@ const Login = () => {
     if (result) {
       localStorage.setItem("token", result.data.token);
       dispatch(setAuthUser(result.data.data));
-      toast.success(result.data.message|| "Login successful!");
+      toast.success(result.data.message || "Login successful!");
       router.push("/");
     }
   };
